@@ -31,14 +31,14 @@ const Search = () => {
 
 
   return (
-    <div className="container">
-    <h2 className="title">
-      Resultados para: <span className="query-text">{query}</span>
+    <div className="grid grid-cols-1">
+    <h2 className="text-2xl text-center py-4 mb-4">
+      Resultados para: <span className="text-amber-300">{query}</span>
       </h2>
-    <div className="movies-container">
+    <div className="flex flex-wrap items-center justify-center gap-8">
     {movies &&  
       movies.map((movie) =>
-      <MovieCard key={movie.id}  movie={movie} />
+      <MovieCard key={movie.id}  movie={movie} showButton={true} />
      )}
     </div>
   </div>

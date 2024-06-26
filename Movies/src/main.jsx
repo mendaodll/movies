@@ -5,7 +5,7 @@ import App from './App.jsx'
 import Home from './pages/Home.jsx'
 import Movie from './pages/Movie.jsx'
 import Search from './pages/Search.jsx'
-import './index.css'
+import '../globals.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

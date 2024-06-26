@@ -1,18 +1,14 @@
 import { useState, useEffect } from "react"
 import { useParams } from 'react-router-dom'
-import {
-  BsGraphUp,
-  BsWallet2,
-  BsHourglassSplit,
-  BsFillFileEarmarkTextFill
-} from 'react-icons/bs'
 
-import MoveiCard from '../components/MovieCard'
+import { CircleDollarSign, LineChart, Hourglass, FileText } from "lucide-react";
 
-import './Movie.css'
+import MovieCard from '../components/MovieCard'
+
 
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
+
 
 
 const Movie = () => {
@@ -24,6 +20,7 @@ const Movie = () => {
     const data = await res.json()
 
     setMovie(data)
+    console.log(data);
   }
 
   const formatCurrency = (number) => {
@@ -39,37 +36,37 @@ const Movie = () => {
   }, [])
 
   return (
-    <div className="movie-page">
+    <div className="flex flex-col items-center w-full max-w-screen justify-center">
       {movie &&
       <>
-        <MoveiCard movie={movie} showLink={false} />
-        <p className="tagline">{movie.tagline}</p>
-        <div className="info">
-          <h3>
-            <BsWallet2/> Orçamento:
-          </h3>
+        <MovieCard movie={movie} showLink={false} showButton={false}/>
+        <div className="flex flex-wrap flex-col gap-2 py-4 mb-4">
+        <p className="text-lg mt-4 mb-4 text-center font-semibold">{movie.tagline}</p>
+        <div className="flex flex-wrap max-w-lg gap-2">
+          <CircleDollarSign className="h-6 w-7 text-amber-300"/>
+          <h3> Orçamento:</h3>
           <p>{formatCurrency(movie.budget)}</p>
         </div>
 
-        <div className="info">
-          <h3>
-            <BsGraphUp/> Receita:
-          </h3>
+        <div className="flex items-center flex-wrap max-w-lg gap-2">
+          <LineChart className="h-6 w-7 text-amber-300"/>
+          <h3>Receita:</h3>
           <p>{formatCurrency(movie.revenue)}</p>
         </div>
 
-        <div className="info">
+        <div className="flex items-center flex-wrap max-w-lg gap-2">
+          <Hourglass className="h-6 w-7 text-amber-300"/>
           <h3>
-            <BsHourglassSplit/> Duração:
+             Duração:
           </h3>
           <p>{movie.runtime} minutos</p>
         </div>
 
-        <div className="info-description">
-          <h3>
-            <BsFillFileEarmarkTextFill/> Descrição:
-          </h3>
-          <p>{movie.overview}</p>
+        <div className="flex items-center flex-wrap max-w-lg gap-2">
+        <FileText className="h-6 w-7 text-amber-300"/>
+          <h3>Descrição:</h3>
+          <p className="text-justify tracking-tighter text-md font-semibold">{movie.overview}</p>
+        </div>
         </div>
       </>}
     </div>
@@ -77,3 +74,6 @@ const Movie = () => {
 }
 
 export default Movie
+
+
+

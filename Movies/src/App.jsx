@@ -1,18 +1,15 @@
-import { useState } from 'react'
+
 import {Outlet} from 'react-router-dom'
 import Navbar from './components/Navbar'
 
-import './App.css'
-
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="app">
-      <Navbar />
-      <Outlet />
-    </div>
-  )
+    <div className="flex min-h-screen w-full flex-col bg-muted/40">
+        <Navbar />
+        <Outlet />
+      </div>
+  );
 }
 
 export default App
