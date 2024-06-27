@@ -6,6 +6,9 @@ import Home from './pages/Home.jsx'
 import Movie from './pages/Movie.jsx'
 import Search from './pages/Search.jsx'
 import '../globals.css'
+import Popular from './pages/Popular.jsx';
+import NowPlaying from './pages/NowPlaying.jsx';
+import Upcoming from './pages/Upcoming.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -13,6 +16,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route element={<App />}> 
           <Route path="/" element={<Home />} />
+          <Route path="/popular" element={<Popular />} />
+          <Route path="/nowplaying" element={<NowPlaying />} />
+          <Route path="/upcoming" element={<Upcoming />} />
           <Route path="movie/:id" element={<Movie />} />
           <Route path="search" element={<Search />} />
         </Route>

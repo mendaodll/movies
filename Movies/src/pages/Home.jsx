@@ -22,14 +22,20 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 h-full min-h-screen">
-      <h2 className="text-2xl text-center py-4 mb-4">Melhores Avaliados:</h2>
-      <div className="flex flex-wrap items-center justify-center gap-8">
-        {topMovies.length === 0 && <p>Carregando...</p>}
-        {topMovies.length > 0 &&
-          topMovies.map((movie) => <MovieCard key={movie.id} movie={movie} showButton={true} />)}
+    <main>
+      <div className="flex h-full min-h-screen flex-wrap justify-center xl:flex-col">
+        <h2 className="text-2xl text-center py-4 mb-4 mt-4 tracking-tight font-normal">
+          Melhor Avaliados
+        </h2>
+        <div className="flex flex-wrap justify-center xl:max-w-screen-3xl gap-8">
+          {topMovies.length === 0 && <p>Carregando...</p>}
+          {topMovies.length > 0 &&
+            topMovies.map((movie) => (
+              <MovieCard key={movie.id} movie={movie} showButton={true} />
+            ))}
+        </div>
       </div>
-    </div>
+    </main>
   );
 };
 

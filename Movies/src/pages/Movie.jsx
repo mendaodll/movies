@@ -36,36 +36,36 @@ const Movie = () => {
   }, [])
 
   return (
-    <div className="flex flex-col items-center w-full max-w-screen justify-center">
+    <div className="flex flex-col items-center w-full max-w-screen justify-center mt-12">
       {movie &&
       <>
         <MovieCard movie={movie} showLink={false} showButton={false}/>
         <div className="flex flex-wrap flex-col gap-2 py-4 mb-4">
         <p className="text-lg mt-4 mb-4 text-center font-semibold">{movie.tagline}</p>
         <div className="flex flex-wrap max-w-lg gap-2">
-          <CircleDollarSign className="h-6 w-7 text-amber-300"/>
-          <h3> Orçamento:</h3>
+          <CircleDollarSign className="h-6 w-7 text-foreground"/>
+          <h3 className="font-semibold"> Orçamento:</h3>
           <p>{formatCurrency(movie.budget)}</p>
         </div>
 
         <div className="flex items-center flex-wrap max-w-lg gap-2">
-          <LineChart className="h-6 w-7 text-amber-300"/>
-          <h3>Receita:</h3>
+          <LineChart className="h-6 w-7 text-foreground"/>
+          <h3 className="font-semibold">Receita:</h3>
           <p>{formatCurrency(movie.revenue)}</p>
         </div>
 
         <div className="flex items-center flex-wrap max-w-lg gap-2">
-          <Hourglass className="h-6 w-7 text-amber-300"/>
-          <h3>
+          <Hourglass className="h-6 w-7 text-foreground"/>
+          <h3 className="font-semibold">
              Duração:
           </h3>
           <p>{movie.runtime} minutos</p>
         </div>
 
         <div className="flex items-center flex-wrap max-w-lg gap-2">
-        <FileText className="h-6 w-7 text-amber-300"/>
-          <h3>Descrição:</h3>
-          <p className="text-justify tracking-tighter text-md font-semibold">{movie.overview}</p>
+        <FileText className="h-6 w-7 text-foreground"/>
+          <h3 className="font-semibold">Descrição:</h3>
+          <p className="text-justify tracking-tighter text-md font-thin pl-2">{movie.overview}</p>
         </div>
         </div>
       </>}
