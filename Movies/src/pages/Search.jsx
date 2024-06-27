@@ -32,8 +32,8 @@ const Search = () => {
 
   return (
     <div className="grid grid-cols-1">
-    <h2 className="text-2xl text-center py-4 mb-4">
-      Resultados para: <span className="text-amber-300">{query}</span>
+    <h2 className="text-2xl text-center py-4 mb-4 text-zinc-400">
+      Resultados para: <span className="text-foreground">{query}</span>
       </h2>
     <div className="flex flex-wrap items-center justify-center gap-8">
     {movies &&  
